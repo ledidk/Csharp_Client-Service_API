@@ -1,0 +1,104 @@
+﻿@model RestaurantInfo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Create a New Restaurant Review</h1>
+<hr />
+<form asp-action="New">
+    <div class="row">
+        <div class="col-md-8">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Name
+        </div>
+        <div class="col-md-4">
+            <input asp-for="name" class="form-control" />
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Street Address
+        </div>
+        <div class="col-md-4">
+            <input asp-for="address.street" class="form-control" />
+            <span asp-validation-for="address.street" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            City
+        </div>
+        <div class="col-md-4">
+            <input asp-for="address.city" class="form-control" />
+            <span asp-validation-for="address.city" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Province
+        </div>
+        <div class="col-md-4">
+            <input asp-for="address.provstate" class="form-control" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Postal Code
+        </div>
+        <div class="col-md-4">
+            <input asp-for="address.postalzipcode" class="form-control" />
+            <span asp-validation-for="address.postalzipcode" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Summary
+        </div>
+        <div class="col-md-4">
+            <textarea rows="5" asp-for="summary" class="form-control"></textarea>
+            <span asp-validation-for="summary" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Food Type
+        </div>
+        <div class="col-md-4">
+            <input asp-for="foodType" class="form-control" />
+            <span asp-validation-for="foodType" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Cost
+        </div>
+        <div class="col-md-4">
+            <input asp-for="cost.currentCost" class="form-control" />
+            <span asp-validation-for="cost.currentCost" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            Rating
+        </div>
+        <div class="col-md-4">
+            <input asp-for="rating.currentRating" class="form-control" />
+            <span asp-validation-for="rating.currentRating" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,71 @@
+﻿@model List<RestaurantInfo>
+
+@{
+    ViewData["Title"] = "Overview";
+}
+
+<h1>Restaurants Overview</h1>
+<div class="row">
+    <div class="col-md-4">
+        <a asp-action="New">Add a New Restaurant</a>
+    </div>
+    <div class="col-md-8">
+        <span class="alert-info">@ViewBag.Confirmation</span>
+    </div>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Food Type
+            </th>
+            <th>
+                Rating (out of 5)
+            </th>
+            <th>
+                Cost (out of 5)
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Province
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.name
+                </td>
+                <td>
+                    @item.foodType
+                </td>
+                <td>
+                    @item.rating.currentRating
+                </td>
+                <td>
+                    @item.cost.currentCost
+                </td>
+                <td>
+                    @item.address.city
+                </td>
+                <td>
+                    @item.address.provstate
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id" data-name="@item.name" class="delete">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
